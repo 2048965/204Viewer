@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>204 Viewer Help</title>
+  </head>
+  <body>
+      <br>
+      <font size="+2"><b>General</b></font><br>
+      <br>
+      204Viewer is an image viewer with fast high quality resize/rescale
+      function, and the ability to store descriptions and tags for images.
+      It has an image cache to speed up reviewing collections of images,
+      and it supports tagging images, searching tag collections, and also
+      writing descriptions or stories about images.<br>
+      <br>
+      <b><font size="+2">Options</font></b><br>
+      <br>
+      <font size="+2">Image Cache</font><br>
+      <br>
+      204Viewer implements a cache of previously loaded images, to speed
+      up backtracking through the list of images. This is good if you need
+      to resize large images to fit your screen and you want to walk back
+      and forth through the list. <br>
+      <br>
+      Such a cache is necessarily very memory heavy, so we impose a
+      time-to-live (TTL), and a limit on the amount of memory the cache
+      can use. Set these in the Settings dialog under the Edit menu. The
+      absolute maximum amount of memory that can be allocated in 10% of
+      total system RAM. The TTL is not bounded but in practice one would
+      generally hit the memory limit first anyway.<br>
+      <br>
+      <br>
+      <font size="+2">Description</font><font size="+2">s</font><br>
+      <br>
+      The Description dialog associates a long form description to an
+      image. If you have a story about an image or a set of statistics
+      &amp; information about it, enter that here. The description are
+      stored in a CSV file normally located at
+      %USERPROFILE%\Documents\204Viewer\descriptions.txt, though you can
+      change the filename and location in the Options dialog in the Story
+      manager section.<br>
+      <br>
+      <br>
+      <font size="+2">
+          Tagging<br>
+          <br>
+      </font>Tagging files is applying descriptive words or phrases to the
+      files. The tags should indicate what is in the image, or indicate
+      some attribute of the image. So perhaps you have pictures of your
+      dog playing catch with a frisbee on a sunny day in the park: tags
+      might be <i>dog</i>, <i>frisbee</i>, <i>sunny</i>, <i>park</i>.
+      On the other hand you may have pictures of you fishing in a stream
+      on a sunny day in a park: tags might be <i>me</i>, <i>fishing</i>,
+      <i>sunny</i>, <i>park</i>. Tags are not exclusive, but generally
+      the collection of tags applied would be different for different
+      kinds of images. You wouldn't tag your fishing images with <i>dog</i>
+      if your dog is not there.<br>
+      <br>
+      204Viewer handles tags with tagsets - lists of tags sorted into
+      groups, and also a corresponding list of filename vs tags. A tagset
+      is a CSV file, as is the filename to tags list. They are normally
+      located in %USERPROFILE%\Documents\204Viewer\tagsets, but you can
+      store them anywhere you want using the Tagging Settings dialog box.<br>
+      <br>
+      204Viewer includes a default tagging file, named generic.csv,
+      located in %USERPROFILE%\Documents\204Viewer\tagsets. It probably
+      does not contain the tags you want, but luckily you can edit it.<br>
+      <br>
+      <font size="+1">Tagging a file</font><br>
+      <br>
+      Select Edit|Tagging to open the Tagging dialog. <br>
+      Select one or more files and/or directories.<br>
+      Then double click a tag in the Tags list tree control. The tag is
+      applied to all selected items.<br>
+      Alternately, to apply multiple tags and keep the tag selection,
+      check mark multiple tags and click the &gt;&gt; button.<br>
+      <br>
+      Remove tags by double clicking them in the Applied tags column, or
+      selecting them and clicking the "&lt;&lt;" button.<br>
+      <br>
+      <br>
+      <font size="+1">Adding &amp; removing tags in the Tagset file</font>.<br>
+      <br>
+      Add new tags and groups either with the Tagging -&gt; Add dialog, or
+      using a text editor to edit the CSV file directly. Using a text
+      editor is easier to add many tags, but you will need to reload the
+      program to see the changes in the Tagging dialog.<br>
+      <br>
+      <ul>
+          <li>
+              Using the Add dialog.<br>
+              Click the + button to bring up the Edit tag group lists dialog.<br>
+              You can add new tag group by entering the group name under New
+              tag group... and clicking Add.<br>
+              You can add a new tag by selecting a tag group, and then typing
+              the tag name under New tag... and then clicking Add.<br>
+          </li>
+      </ul>
+      <ul>
+          <li>
+              Using a text editor. This uses the default tagset file as an
+              example. This method is the easiest way to create entire new
+              tagset files - just save your tagset under an appropriate name.<br>
+              Using Windows File Explorer navigate to
+              %USERPROFILE%\Documents\204 ViewerSVS\tagsets.<br>
+              Open generic.csv with Notepad or your favorite text editor. You
+              should see something like this:<br>
+              <br>
+              COLOR,blue,red,green<br>
+              IMAGE SIZE,tiny,small,medium,large<br>
+              IMAGE QUALITY,high,medium,low<br>
+              LUMINANCE,bright,dark<br>
+              CONTENT,dogs,cats,birds,cars,landscape,city skyline,ocean,river<br>
+              <br>
+              To add a new tag, perhaps the color grey, just add it to the
+              COLOR line:<br>
+              <br>
+              COLOR,blue,red,green,grey<br>
+              IMAGE SIZE,tiny,small,medium,large<br>
+              IMAGE QUALITY,high,medium,low<br>
+              LUMINANCE,bright,dark<br>
+              CONTENT,dogs,cats,birds,cars,landscape,city skyline,ocean,river<br>
+              <br>
+              <br>
+              To add a new group and tag(s) for that group, start on a new
+              line, type the group name followed by a comma, followed by a
+              comma separated list of tags. Make sure the last line is blank.
+              Save the file.<br>
+          </li>
+      </ul>
+      <font size="+1">
+          <br>
+          Adding tags to files with a text editor.
+      </font><br>
+      <br>
+      Adding tags to files is done with the Tagging dialog, but you can
+      also do it using a text editor. Look in
+      %USERPROFILE%\Documents\204 Viewer\tagsets again. Find the file named
+      generic.csv.filestags. This is where filename vs tags is stored for
+      the 'generic' tagset. The format of a filestags file is just:<br>
+      <blockquote>
+          filename,taggroup:tag,taggroup:tag,taggroup:tag<br>
+          <br>
+          For example <br>
+          <br>
+          C:\pictures\plants\001.jpg,TYPE:coffeeplant.jpg,COLOR:green,HEIGHT:not
+
+
+          very tall<br>
+          C:\pictures\plants\001.jpg,TYPE:sunflower.jpg,COLOR:green,COLOR:yellow,HEIGHT:very
+
+
+          tall<br>
+          etc etc etc<br>
+      </blockquote>
+      So if you have a collection of files you know you want to tag in a
+      certain manner, just build a .csv file containing your tag groups
+      and tags, and then build a filestags file using your full filenames
+      and the tags you want. <br>
+      <br>
+      This also means that if you have a script that can associate files
+      and tags, just have it write out a CSV file matching this format,
+      which makes bulk tagging fairly easy.<br>
+      <br>
+      <br>
+      <font size="+1">Creating new Tagsets and switching Tagsets.</font><br>
+      <br>
+      To use a new tagset unrelated to generic.csv, use the above
+      instructions to create a .csv file containing your groups and tags.
+      Optionally create a filestags file if you want to. Save these
+      somewhere convenient. <br>
+      <br>
+      Let's say you saved it as c:\data\plant-tags.csv.<br>
+      <br>
+      Then in the Tagging dialog, click Settings. Navigate to the
+      directory you saved to (C:\data), and enter the name of your new
+      tagset (plant-tags) without the ".csv " part, and click OK.
+      204Viewer will load your new tagset. This is how you switch between
+      existing tagsets as well.<br>
+      <br>
+      <br>
+      <font size="+2">Search by tags</font>.<br>
+      <br>
+      Finally, having tagged a collection of files, you can search the
+      collection by tags. Again in the Tagging dialog box, check mark some
+      tags to search with and click Search. If the tagging data has
+      matching files then the main file list will be loaded up with them.
+      This can mean a list of files located across multiple directories,
+      depending on how you organize your files. For this reason the ".."
+      navigation choice is not shown in the file list for a tag search
+      result. To get from a tag search result back to the normal file
+      system view, just do the normal Right click &gt; Change drive
+      operation. <br>
+  </body>
+</html>
